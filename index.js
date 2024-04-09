@@ -99,14 +99,15 @@ const predpoved = [
   },
   ,
 ];
-const prepovedik = window.location.hash.slice(1);
-const predpovedElem = predpoved.find((pocasi) => pocasi.id === prepovedik);
 const mainElement = document.querySelector('main');
+predpoved.forEach((predpoved) => {
+  mainElement.innerHTML += `
+  <div class = "predpoved-card">
+  <h2> ${predpoved.den}</h2>
+  <p>${predpoved.datum}</p>
 
-mainElement.innerHTML += `
-  <div>
-    <h2>${predpovedElem.den}</h2>
-    <p>${predpovedElem.datum}</p>
-    <p>${predpovedElem.popis_pocasi}</p>
-  </div>
-`;
+  <a href= "data.html#${predpoved.id}">Přečíst celý článek</a>
+    </div>
+
+  `;
+});
